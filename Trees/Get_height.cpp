@@ -44,28 +44,20 @@ TreeNode<int>* takeInputLevelWise() {
     return root;
 }
 
-TreeNode<int>* maxDataNode(TreeNode<int>* root) {
+int getHeight(TreeNode<int>* root) {
     // Write your code here
     if(root==NULL){
-        return root;
+        return 0;
     }
-    TreeNode<int> *temp = root;
-    int max = root->data;
+    int ans=0;
     for(int i=0;i<root->children.size();i++){
-        TreeNode<int> *hihi = maxDataNode(root->children[i]);
-        if(hihi->data > max){
-            max= hihi->data;
-            temp = hihi;
-        }
+        ans = max(ans, getHeight(root->children[i]));
     }
-    return temp;
+    return 1+ans;
+    
 }
 
 int main() {
     TreeNode<int>* root = takeInputLevelWise();
-    TreeNode<int>* ans = maxDataNode(root);
-
-    if (root != NULL) {
-        cout << ans->data;
-    }
+    cout << getHeight(root);
 }
