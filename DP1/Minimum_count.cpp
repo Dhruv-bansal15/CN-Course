@@ -1,7 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-#include <bits/stdc++.h> 
-using namespace std;
 int minCount(int n)
 {
     if(n<=3)
