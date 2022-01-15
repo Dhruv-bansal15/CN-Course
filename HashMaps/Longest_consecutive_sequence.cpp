@@ -15,14 +15,9 @@ vector<int> longestConsecutiveIncreasingSequence(int *arr, int n) {
     for (int i = 0; i < n; i++){
         if (S.find(arr[i] - 1) == S.end())
         {
-            // Then check for next elements
-            // in the sequence
             int j = arr[i];
             while (S.find(j) != S.end())
                 j++;
- 
-            // update  optimal length if
-            // this length is more
             if(j - arr[i] > ans){
                 ans = max(ans, j - arr[i]);
                 output.clear();
@@ -37,17 +32,12 @@ vector<int> longestConsecutiveIncreasingSequence(int *arr, int n) {
 int main() {
     int size;
     cin >> size;
-
     int* arr = new int[size];
-
     for (int i = 0; i < size; i++) {
         cin >> arr[i];
     }
-
-    vector<int> ans = longestConsecutiveIncreasingSequence(arr, size);
-
+    vector<int> ans = longestConsecutiveIncreasingSequence(arr
     for (auto i = ans.begin(); i != ans.end(); ++i)
         cout << *i << " ";
-
     delete[] arr;
 }
